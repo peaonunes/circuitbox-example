@@ -6,9 +6,9 @@ app.listen(4000, function () {
 });
 
 app.get("/", function (req, res) {
-  const success = Boolean(req.query && req.query.success);
+  const success = new Boolean(req.query.success);
   setTimeout(() => {
-    let status = success === true ? 200 : 400;
+    let status = success == true ? 200 : 500;
     res.sendStatus(status);
   }, 250);
 });
