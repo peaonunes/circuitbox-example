@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/without-timeout', to: 'home#without_timeout'
   get '/with-timeout', to: 'home#with_timeout'
   get '/default-cb', to: 'home#default_circuit_breaker'
+  get '/custom-cb', to: 'home#custom_circuit_breaker'
   get '/recover-cb', to: 'home#recover_cb'
 end

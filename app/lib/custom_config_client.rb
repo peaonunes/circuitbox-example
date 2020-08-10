@@ -2,7 +2,7 @@ class CustomConfigClient
   def initialize(speed:)
     @speed = speed
     @circuit = ::Circuitbox.circuit(
-      :custom_config,
+      :node_client_custom_config,
       exceptions: [HTTP::TimeoutError],
       time_window: 5,
       volume_threshold: 2,
@@ -11,7 +11,7 @@ class CustomConfigClient
   end
 
   def call
-    circuit.run(circuitbox_exceptions: false) do
+    circuit.run do
       HTTP.timeout(0.1).get("http://localhost:4000/?speed=#{speed}").status
     end
   end
