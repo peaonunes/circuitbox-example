@@ -18,4 +18,3 @@ class TargetClient
     end
   end
 end
-
